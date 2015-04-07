@@ -93,9 +93,9 @@ if msvc and platform != "Windows":
 
 #Create SCons Environment
 if platform == "Windows" and not GetOption('msvc'):
-	env = Environment(tools = ['mingw'], ENV = {'PATH' : os.environ['PATH']})
+	env = Environment(tools = ['mingw'], ENV = os.environ)
 else:
-	env = Environment(tools = ['default'], ENV = {'PATH' : os.environ['PATH']})
+	env = Environment(tools = ['default'], ENV = os.environ)
 
 #attempt to automatically find cross compiler
 if not tool and compilePlatform == "Linux" and compilePlatform != platform:
